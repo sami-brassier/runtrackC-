@@ -1,0 +1,10 @@
+Pour la première expression,w est un short int et  est la valeur
+
+x = p + 3
+le type est short int. La valeur de est de 13
+y = c + 1
+c est de type char. La valeur de est de 2
+z = p + c
+c est un type short int. La valeur de est de 11
+w = 3 * p + 5 * c
+w est un type int. La valeur de est de 35

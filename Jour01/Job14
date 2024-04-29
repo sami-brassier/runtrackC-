@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main() {
+    int nombre, nombreInverse = 0;
+    std::cout << "Entrez un nombre : ";
+    std::cin >> nombre;
+    int nombreTemporaire = nombre;
+    while (nombreTemporaire != 0) {
+        int chiffre = nombreTemporaire % 10;
+        nombreInverse = nombreInverse * 10 + chiffre;
+        nombreTemporaire /= 10;
+    }
+    std::cout << "Le nombre inverse est : " << nombreInverse << std::endl;
+    return 0;
+}
