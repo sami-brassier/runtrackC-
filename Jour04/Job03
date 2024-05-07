@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+    const int MAX_LENGTH = 100;
+    char chaine[MAX_LENGTH];
+    cout << "Entrez une chaîne de caractères : ";
+    cin.getline(chaine, MAX_LENGTH);
+    int longueur = strlen(chaine);
+    char *debut = chaine;
+    char *fin = chaine + longueur - 1;
+    while (debut < fin) {
+        char temp = *debut;
+        *debut = *fin;
+        *fin = temp;
+        debut++;
+        fin--;
+    }
+    cout << "Chaîne inversée : " << chaine << endl;
+    cout << "=== Code Execution Successful ===" << endl;
+    return 0;
+}

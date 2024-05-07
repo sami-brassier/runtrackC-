@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 12;
+
+    cout << "Avant modification : x = " << x << endl;
+
+    int& ref_x = x;
+    ref_x = 24;
+
+    cout << "Après modification : x = " << x << endl;
+
+    return 0;
+}

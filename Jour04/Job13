@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+struct Destination {
+    string nom;
+    int temps_vol;
+};
+
+int main() {
+    vector<Destination*> destinations;
+
+    string nom_destination;
+    int temps_vol_destination;
+
+    cout << "Saisissez une destination depuis Marseille (nom et temps de vol) ou 'quit' pour quitter :" << endl;
+    while (true) {
+        cout << "Destination : ";
+        cin >> nom_destination;
+
+        if (nom_destination == "quit") {
+            break;
+        }
+
+        cout << "Temps de vol : ";
+        cin >> temps_vol_destination;
+
+        Destination* nouvelle_destination = new Destination;
+        nouvelle_destination->nom = nom_destination;
+        nouvelle_destination->temps_vol = temps_vol_destination;
+
+        destinations.push_back(nouvelle_destination);
+    }
+
+    cout << "\nDestinations enregistrées :" << endl;
+    for (Destination* dest : destinations) {
+        cout << "Destination : " << dest->nom << ", Temps de vol : " << dest->temps_vol << endl;
+    }
+
+    cout << "\nModification des temps de vol :" << endl;
+    for (Destination* dest : destinations) {
+        cout << "Nouveau temps de vol pour " << dest->nom << " : ";
+        cin >> dest->temps_vol;
+    }
+
+    cout << "\nDestinations après modification :" << endl;
+    for (Destination* dest : destinations) {
+        cout << "Destination : " << dest->nom << ", Temps de vol : " << dest->temps_vol << endl;
+    }
+
+    for (Destination* dest : destinations) {
+        delete dest;
+    }
+
+    return 0;
+}

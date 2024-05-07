@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int trouverMax(int tableau[], int taille) {
+    int max = tableau[0];
+
+    for (int i = 1; i < taille; ++i) {
+        if (tableau[i] > max) {
+            max = tableau[i];
+        }
+    }
+
+    return max;
+}
+
+int main() {
+    int tableau[] = {5, 8, 3, 12, 6, 9};
+    int taille = sizeof(tableau) / sizeof(tableau[0]); // Calculer la taille du tableau
+
+    int max = trouverMax(tableau, taille);
+
+    cout << "La valeur maximale du tableau est : " << max << endl;
+
+    return 0;
+}

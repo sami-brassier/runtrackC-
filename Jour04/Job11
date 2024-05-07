@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string fruits[] = {"pomme", "banane", "orange", "fraise", "kiwi"};
+
+    cout << "Contenu du tableau \"fruit\":" << endl;
+    for (int i = 0; i < 5; ++i) {
+        cout << fruits[i] << endl;
+    }
+
+    int taille_favoris;
+    cout << "\nEntrez votre nombre de fruits preferes : ";
+    cin >> taille_favoris;
+
+    string* favoris = new string[taille_favoris];
+
+    cout << "Entrez vos " << taille_favoris << " fruits preferes :" << endl;
+    for (int i = 0; i < taille_favoris; ++i) {
+        cout << "Fruit " << i + 1 << " : ";
+        cin >> favoris[i];
+    }
+
+    cout << "\nContenu du tableau \"favoris\":" << endl;
+    for (int i = 0; i < taille_favoris; ++i) {
+        cout << favoris[i] << endl;
+    }
+
+    delete[] favoris;
+
+    return 0;
+}

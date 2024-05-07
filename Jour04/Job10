@@ -1,0 +1,81 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+struct Note {
+    string nom;
+    string prenom;
+    float note;
+};
+
+int main() {
+    vector<Note> liste_notes;
+
+    int choix;
+    do {
+        cout << "\nMenu :" << endl;
+        cout << "1. Ajouter une note" << endl;
+        cout << "2. Afficher la liste de notes" << endl;
+        cout << "3. Supprimer une note d'un etudiant" << endl;
+        cout << "4. Afficher la moyenne des notes" << endl;
+        cout << "5. Quitter" << endl;
+        cout << "Choix: ";
+        cin >> choix;
+
+        switch (choix) {
+            case 1: {
+                Note nouvelle_note;
+                cout << "Entrez le nom de l'etudiant : ";
+                cin >> nouvelle_note.nom;
+                cout << "Entrez le prenom de l'etudiant : ";
+                cin >> nouvelle_note.prenom;
+                cout << "Entrez la note de l'etudiant : ";
+                cin >> nouvelle_note.note;
+                liste_notes.push_back(nouvelle_note);
+                break;
+            }
+            case 2: {
+                cout << "Liste des notes :" << endl;
+                for (const auto& note : liste_notes) {
+                    cout << "Nom: " << note.nom << ", Prenom: " << note.prenom << ", Note: " << note.note << endl;
+                }
+                break;
+            }
+            case 3: {
+                if (!liste_notes.empty()) {
+                    int index;
+                    cout << "Entrez l'index de la note a supprimer (de 1 a " << liste_notes.size() << ") : ";
+                    cin >> index;
+                    if (index >= 1 && index <= liste_notes.size()) {
+                        liste_notes.erase(liste_notes.begin() + index - 1);
+                    }
+                } else {
+                    cout << "La liste des notes est vide." << endl;
+                }
+                break;
+            }
+            case 4: {
+                float somme = 0;
+                for (const auto& note : liste_notes) {
+                    somme += note.note;
+                }
+                if (!liste_notes.empty()) {
+                    float moyenne = somme / liste_notes.size();
+                    cout << "Moyenne des notes : " << moyenne << endl;
+                } else {
+                    cout << "La liste des notes est vide." << endl;
+                }
+                break;
+            }
+            case 5:
+                cout << "Programme termine." << endl;
+                break;
+            default:
+                cout << "Choix invalide. Veuillez entrer un choix valide." << endl;
+        }
+
+    } while (choix != 5);
+
+    return 0;
+}

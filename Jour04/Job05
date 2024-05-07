@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+struct Point {
+    int x;
+    int y;
+};
+
+int main() {
+    Point p;
+    Point *ptr_p = &p;
+    ptr_p->x = 10;
+    ptr_p->y = 20;
+    cout << "Nouvelles valeurs de x et y à travers le pointeur :" << endl;
+    cout << "x = " << ptr_p->x << endl;
+    cout << "y = " << ptr_p->y << endl;
+
+    return 0;
+}
