@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+void afficherSuiteFibonacci(int limite) {
+    int terme1 = 0, terme2 = 1, terme_suivant;
+
+    cout << "Suite de Fibonacci jusqu'à la limite " << limite << " :" << endl;
+
+    cout << terme1 << " ";
+    cout << terme2 << " ";
+
+    terme_suivant = terme1 + terme2;
+    while (terme_suivant <= limite) {
+        cout << terme_suivant << " ";
+        terme1 = terme2;
+        terme2 = terme_suivant;
+        terme_suivant = terme1 + terme2;
+    }
+    cout << endl;
+}
+
+int main() {
+    int limite;
+
+    cout << "Entrez la limite pour la suite de Fibonacci : ";
+    cin >> limite;
+
+    afficherSuiteFibonacci(limite);
+
+    return 0;
+}

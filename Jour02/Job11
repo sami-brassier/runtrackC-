@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+unsigned long long factorielle(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+        return n * factorielle(n - 1);
+    }
+}
+
+int main() {
+    int nombre;
+
+    cout << "Entrez un nombre entier positif pour calculer sa factorielle : ";
+    cin >> nombre;
+
+    if (nombre < 0) {
+        cout << "Veuillez entrer un nombre entier positif." << endl;
+        return 1;
+    }
+
+    unsigned long long resultat = factorielle(nombre);
+    cout << nombre << "! = " << resultat << endl;
+
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+double sommeHarmonique(int n) {
+    double somme = 0.0;
+    for (int i = 1; i <= n; ++i) {
+        somme += 1.0 / i;
+    }
+    return somme;
+}
+
+int main() {
+    int n;
+
+    cout << "Entrez le nombre de termes n pour calculer la somme de la série harmonique : ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "Le nombre de termes doit être positif." << endl;
+        return 1;
+    }
+
+    double somme = sommeHarmonique(n);
+
+    cout << "La somme des " << n << " premiers termes de la série harmonique est : " << somme << endl;
+
+    return 0;
+}
